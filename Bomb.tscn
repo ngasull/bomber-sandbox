@@ -82,7 +82,7 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 7.89011, 7.84373 )
 
 [node name="StaticBody2D" type="StaticBody2D" index="0"]
 
@@ -94,11 +94,10 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Pickable", "Visibility" ]
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "Visibility" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 vframes = 40
 hframes = 32

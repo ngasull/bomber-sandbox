@@ -177,7 +177,7 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=10]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 11.186 )
+extents = Vector2( 7.30771, 7.98034 )
 
 [node name="Player" type="KinematicBody2D"]
 
@@ -190,8 +190,8 @@ _sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "Visibi
 
 [node name="BombermanSprite" type="Sprite" parent="." index="0"]
 
-scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
+offset = Vector2( 0, -8 )
 vframes = 28
 hframes = 10
 frame = 20
@@ -218,8 +218,9 @@ blend_times = [  ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
-position = Vector2( 0, 3.26923 )
-scale = Vector2( 1, 1.8843 )
+position = Vector2( -0.445915, -2.2596 )
+scale = Vector2( 0.95674, 0.794214 )
 shape = SubResource( 10 )
+_sections_unfolded = [ "Transform" ]
 
 

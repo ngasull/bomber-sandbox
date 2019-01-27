@@ -24,13 +24,13 @@ func _ready():
 
 [node name="World" type="Node2D"]
 
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
 mode = 0
 tile_set = ExtResource( 1 )
-cell_size = Vector2( 64, 64 )
+cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
@@ -44,50 +44,49 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 262150, 0, 0, 262151, 0, 0, 327680, 0, 0, 327682, 0, 0, 327686, 1, 0, 327690, 0, 0, 327691, 0, 0, 393216, 1, 0, 393218, 1, 0, 393228, 1, 0, 458752, 1, 0, 458754, 1, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 524288, 1, 0, 524290, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 720896, 1, 0, 720897, 1, 0, 720898, 1, 0, 720899, 1, 0, 720900, 1, 0, 720901, 1, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 1, 0, 720912, 1, 0, 720913, 1, 0, 786432, 1, 0, 786433, 1, 0, 786434, 1, 0, 786435, 1, 0, 786436, 1, 0, 786437, 1, 0, 786438, 1, 0, 786439, 1, 0, 786440, 1, 0, 786441, 1, 0, 786442, 1, 0, 786443, 1, 0, 786444, 1, 0, 786445, 1, 0, 786446, 1, 0, 786447, 1, 0, 786448, 1, 0, 786449, 1, 0, 851968, 1, 0, 851969, 1, 0, 851970, 1, 0, 851971, 1, 0, 851972, 1, 0, 851973, 1, 0, 851974, 1, 0, 851975, 1, 0, 851976, 1, 0, 851977, 1, 0, 851978, 1, 0, 851979, 1, 0, 851980, 1, 0, 851981, 1, 0, 851982, 1, 0, 851983, 1, 0, 851984, 1, 0, 851985, 1, 0 )
-_sections_unfolded = [ "Cell", "Collision", "Transform" ]
+tile_data = PoolIntArray( 524296, 4, 0, 524297, 7, 0, 524298, 7, 0, 524299, 7, 0, 524300, 7, 0, 524301, 7, 0, 524302, 7, 0, 524303, 7, 0, 524304, 7, 0, 524305, 7, 0, 524306, 7, 0, 524307, 7, 0, 524308, 9, 0, 589832, 4, 0, 589844, 10, 0, 655368, 5, 0, 655380, 10, 0, 720904, 5, 0, 720916, 10, 0, 786440, 5, 0, 786452, 10, 0, 851976, 5, 0, 851980, 8, 0, 851981, 8, 0, 851982, 8, 0, 851983, 8, 0, 851984, 8, 0, 851988, 10, 0, 917512, 5, 0, 917524, 10, 0, 983048, 5, 0, 983060, 10, 0, 1048584, 5, 0, 1048596, 10, 0, 1114120, 5, 0, 1114132, 10, 0, 1179656, 6, 0, 1179657, 8, 0, 1179658, 8, 0, 1179659, 8, 0, 1179660, 8, 0, 1179661, 8, 0, 1179662, 8, 0, 1179663, 8, 0, 1179664, 8, 0, 1179665, 8, 0, 1179666, 8, 0, 1179667, 8, 0, 1179668, 11, 0 )
+_sections_unfolded = [ "Cell" ]
 
 [node name="Player" parent="." index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 800, 480 )
+position = Vector2( 216, 248 )
 z_index = 1
 collision_layer = 2
-collision/safe_margin = 0.001
 _sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 
 [node name="RayCastUp" type="RayCast2D" parent="Player" index="0"]
 
-position = Vector2( 0, -32 )
+position = Vector2( 0, -8 )
 enabled = true
 exclude_parent = true
-cast_to = Vector2( 0, -32 )
+cast_to = Vector2( 0, -8 )
 collision_mask = 5
 _sections_unfolded = [ "Transform" ]
 
 [node name="RayCastDown" type="RayCast2D" parent="Player" index="1"]
 
-position = Vector2( 0, 32 )
+position = Vector2( 0, 8 )
 enabled = true
 exclude_parent = true
-cast_to = Vector2( 0, 32 )
+cast_to = Vector2( 0, 8 )
 collision_mask = 5
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="RayCastLeft" type="RayCast2D" parent="Player" index="2"]
 
-position = Vector2( -32, 0 )
+position = Vector2( -8, 0 )
 enabled = true
 exclude_parent = true
-cast_to = Vector2( -32, 0 )
+cast_to = Vector2( -8, 0 )
 collision_mask = 5
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="RayCastRight" type="RayCast2D" parent="Player" index="3"]
 
-position = Vector2( 32, 0 )
+position = Vector2( 8, 0 )
 enabled = true
 exclude_parent = true
-cast_to = Vector2( 32, 0 )
+cast_to = Vector2( 8, 0 )
 collision_mask = 5
 _sections_unfolded = [ "Material", "Transform" ]
 
@@ -102,6 +101,7 @@ _sections_unfolded = [ "Z Index" ]
 
 [node name="Camera2D" type="Camera2D" parent="Player" index="7"]
 
+visible = false
 scale = Vector2( 1.08404, 1.00355 )
 anchor_mode = 1
 rotating = false

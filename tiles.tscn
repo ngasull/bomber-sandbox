@@ -1,22 +1,55 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://platformer_tiles.png" type="Texture" id=1]
+[ext_resource path="res://BombermanSprites_tiles.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 32, 32 )
+extents = Vector2( 8.0406, 7.98512 )
 
-[node name="Tiles" type="Node2D"]
+[node name="TileMap" type="Node2D"]
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="Breakable" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 1 )
+frame = 64
 region_enabled = true
-region_rect = Rect2( 0, 0, 64, 64 )
-_sections_unfolded = [ "Region" ]
+region_rect = Rect2( 765, 14, 16, 16 )
+_sections_unfolded = [ "Animation", "Offset", "Region" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite" index="0"]
+[node name="WallOut" type="Sprite" parent="." index="1"]
+
+position = Vector2( 26.161, -19.0262 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 782, 14, 16, 16 )
+_sections_unfolded = [ "Animation", "Offset", "Region" ]
+
+[node name="Floor" type="Sprite" parent="." index="2"]
+
+position = Vector2( 49.468, -19.264 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 799, 14, 16, 16 )
+_sections_unfolded = [ "Animation", "Offset", "Region" ]
+
+[node name="FloorN" type="Sprite" parent="." index="3"]
+
+position = Vector2( 74.6777, -19.5018 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 816, 14, 16, 16 )
+_sections_unfolded = [ "Animation", "Offset", "Region" ]
+
+[node name="WallN" type="Sprite" parent="." index="4"]
+
+position = Vector2( 50.1815, -0.475655 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 799, 31, 16, 16 )
+_sections_unfolded = [ "Animation", "Offset", "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallN" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -26,19 +59,21 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/StaticBody2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallN/StaticBody2D" index="0"]
 
 shape = SubResource( 1 )
 
-[node name="Sprite2" type="Sprite" parent="." index="1"]
+[node name="WallNE" type="Sprite" parent="." index="5"]
 
+position = Vector2( 75.1533, -0.475655 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 0, 64, 64, 64 )
-_sections_unfolded = [ "Region" ]
+region_rect = Rect2( 816, 31, 16, 16 )
+_sections_unfolded = [ "Animation", "Offset", "Region" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2" index="0"]
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallNE" index="0"]
 
+position = Vector2( -24.9718, 0 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -47,7 +82,145 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2/StaticBody2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallNE/StaticBody2D2" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="WallE" type="Sprite" parent="." index="6"]
+
+position = Vector2( 75.3911, 18.3127 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 816, 48, 16, 16 )
+_sections_unfolded = [ "Animation", "Offset", "Region" ]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallE" index="0"]
+
+position = Vector2( -25.2097, -18.7883 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallE/StaticBody2D2" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="WallSE" type="Sprite" parent="." index="7"]
+
+position = Vector2( 75.629, 36.1497 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 816, 65, 16, 16 )
+_sections_unfolded = [ "Animation", "Offset", "Region" ]
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="WallSE" index="0"]
+
+position = Vector2( -25.4475, -36.6254 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallSE/StaticBody2D3" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="WallS" type="Sprite" parent="." index="8"]
+
+position = Vector2( 51.6084, 37.101 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 799, 65, 16, 16 )
+_sections_unfolded = [ "Animation", "Offset", "Region" ]
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="WallS" index="0"]
+
+position = Vector2( -1.42696, -37.5767 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallS/StaticBody2D4" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="WallSW" type="Sprite" parent="." index="9"]
+
+position = Vector2( 27.3501, 37.3388 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 782, 65, 16, 16 )
+_sections_unfolded = [ "Animation", "Offset", "Region" ]
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="WallSW" index="0"]
+
+position = Vector2( 22.8314, -37.8145 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallSW/StaticBody2D5" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="WallW" type="Sprite" parent="." index="10"]
+
+position = Vector2( 26.6366, 17.837 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 782, 48, 16, 16 )
+_sections_unfolded = [ "Animation", "Offset", "Region" ]
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="WallW" index="0"]
+
+position = Vector2( 23.5449, -18.3127 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallW/StaticBody2D6" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="WallNW" type="Sprite" parent="." index="11"]
+
+position = Vector2( 26.6366, -0.475655 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 782, 31, 16, 16 )
+_sections_unfolded = [ "Animation", "Offset", "Region" ]
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="WallNW" index="0"]
+
+position = Vector2( 23.5449, 0 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallNW/StaticBody2D7" index="0"]
 
 shape = SubResource( 1 )
 

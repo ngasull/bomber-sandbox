@@ -5,7 +5,7 @@ const DIR_VECTORS = { 'right': Vector2(1, 0),
                       'left': Vector2(-1, 0),
                       'up': Vector2(0, -1),
                       'down': Vector2(0, 1)}
-const TILE_SIZE = 64
+const TILE_SIZE = 16
 
 onready var anim_player = $AnimationPlayer
 onready var raycasts = { 'right': $RayCastRight,
@@ -31,6 +31,8 @@ func _process(delta):
                      "down" if Input.is_action_pressed("move_down") else \
                      null
 
+	#if inputDirection != null:
+	#	move_and_slide(DIR_VECTORS[inputDirection] * TILE_SIZE * 10)
 	if !newMoving:
 		if Input.is_action_pressed("bomb") and !$RayCastBombHere.is_colliding():
 			var bomb = BOMB.instance()
@@ -38,6 +40,7 @@ func _process(delta):
 			bomb.set_position(position)
 		elif inputDirection != null:
 			move(inputDirection)
+			pass
 
 	if newMoving and (!isMoving or newDirection != direction):
 		if newDirection == "left":
@@ -67,8 +70,10 @@ func move(direction):
 			"position",
 			position,
 			position + DIR_VECTORS[direction] * TILE_SIZE,
-			0.3,
+			0.2,
 			Tween.TRANS_LINEAR,
 			Tween.EASE_IN_OUT
 		)
 		newMoving = true
+	else:
+		print(!raycasts[direction].get_collider())

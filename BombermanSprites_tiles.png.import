@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/platformer_thumb.png-fe76975e5dfcd0e9a473d206f93fc23a.stex"
+path="res://.import/BombermanSprites_tiles.png-2bafdfbab6689008a837b59f48f4cd63.stex"
 
 [deps]
 
-source_file="res://platformer_thumb.png"
-dest_files=[ "res://.import/platformer_thumb.png-fe76975e5dfcd0e9a473d206f93fc23a.stex" ]
+source_file="res://BombermanSprites_tiles.png"
+dest_files=[ "res://.import/BombermanSprites_tiles.png-2bafdfbab6689008a837b59f48f4cd63.stex" ]
 
 [params]
 
